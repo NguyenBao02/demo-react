@@ -8,7 +8,7 @@ class MyComponent extends React.Component {
             {
                 id      : 1,
                 name    : 'Hoi Dan IT',
-                age     : 26
+                age     : 16
             },
             {
                 id      : 2,
@@ -18,7 +18,7 @@ class MyComponent extends React.Component {
             {
                 id      : 3,
                 name    : 'Quyen',
-                age     : 22
+                age     : 69
             },
         ]
     }
