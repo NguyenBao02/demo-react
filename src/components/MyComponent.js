@@ -8,16 +8,19 @@ class MyComponent extends React.Component {
         age     : 21
     };
 
-    handleClick() {
-        console.log('My name is');
+    handleClick = (event) => {
+        this.setState({
+            name    : 'Quyen',
+            age     : 22,
+        })
     }
 
     //JSX
     render() {
         return (
             <div>
-                My name is {this.state.name}
-                <button onClick={this.handleClick}>Click Me</button>
+                My name is {this.state.name} and i'm {this.state.age}
+                <button onClick={(event) => {this.handleClick(event)}}>Click Me</button>
             </div>
         );
     }
