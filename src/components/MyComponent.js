@@ -1,18 +1,21 @@
 import React from "react";
 
 class MyComponent extends React.Component {
-
     state = {
         name    : 'Bao',
         address : 'Da Nang',
         age     : 21
     };
 
-    handleClick = (event) => {
+    handleOnChange = (e) => {
         this.setState({
-            name    : 'Quyen',
-            age     : 22,
+            name    :   e.target.value
         })
+    }
+
+    handleOnSubmit(e) {
+        e.preventDefault();
+        console.log(this.state);
     }
 
     //JSX
@@ -20,7 +23,10 @@ class MyComponent extends React.Component {
         return (
             <div>
                 My name is {this.state.name} and i'm {this.state.age}
-                <button onClick={(event) => {this.handleClick(event)}}>Click Me</button>
+                <form onSubmit={(e) => {this.handleOnSubmit(e)}}>
+                    <input type="text" onChange={(e) => {this.handleOnChange(e)}}></input>
+                    <button>Submit</button>
+                </form>
             </div>
         );
     }
