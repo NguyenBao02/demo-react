@@ -6,6 +6,21 @@ class DisplayInfor extends React.Component {
         isShowListUser  : true
     };
 
+    componentDidMount() {
+        console.log('componentDidMount');
+        setTimeout(() => {
+            document.title = "Test"
+        }, 3000)
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.listUsers !== prevProps.listUsers) {
+            if(this.props.listUsers.length === 5) {
+                alert('You got 5 users')
+            }
+        }
+    }
+
     handleShowHide = () => {
         this.setState({
             isShowListUser  : !this.state.isShowListUser
@@ -13,6 +28,7 @@ class DisplayInfor extends React.Component {
     }
  
     render () {
+        console.log('render');
         const { listUsers } = this.props;
         return (
             <div className="display-infor-container">
