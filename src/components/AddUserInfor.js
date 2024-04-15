@@ -1,41 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 
-class AddUserInfor extends React.Component {
-    state = {
-        name    : '',
-        address : 'Da Nang',
-        age     : ''
+const AddUserInfor = (props) => {
+
+    const [name, setName] = useState('');
+    const [address, setAddress] = useState('Da nang');
+    const [age, setAge] = useState('');
+
+    const handleOnChangeName = (e) => {
+        setName(e.target.value)
     };
 
-    handleOnChangeName = (e) => {
-        this.setState({
-            name    :   e.target.value
-        })
+    const handleOnChangeAge = (e) => {
+        setAge(e.target.value)
     };
 
-    handleOnChangeAge = (e) => {
-        this.setState({
-            age    :   e.target.value
-        })
-    };
-
-    handleOnSubmit(e) {
+    const handleOnSubmit = (e) => {
         e.preventDefault();
-        this.props.handleAddNewUser(this.state);
+        props.handleAddNewUser({
+            id  : Math.floor((Math.random() * 100) + 1) + '-random',
+            name,
+            age
+        });
     }
 
-    render() {
-        return (
-            <div>
-                My name is {this.state.name} and i'm {this.state.age}
-                <form onSubmit={(e) => {this.handleOnSubmit(e)}}>
-                    <input value={this.state.name} type="text" onChange={(e) => {this.handleOnChangeName(e)}}></input>
-                    <input value={this.state.age} type="text" onChange={(e) => {this.handleOnChangeAge(e)}}></input>
-                    <button>Submit</button>
-                </form>
-            </div>
-        )
-    }
+    return (
+        <div>
+            My name is {name} and i'm {age}
+            <form onSubmit={(e) => {handleOnSubmit(e)}}>
+                <input value={name} type="text" onChange={(e) => {handleOnChangeName(e)}}></input>
+                <input value={age} type="text" onChange={(e) => {handleOnChangeAge(e)}}></input>
+                <button>Submit</button>
+            </form>
+        </div>
+    )
 }
 
 export default AddUserInfor
