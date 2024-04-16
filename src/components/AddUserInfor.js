@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const AddUserInfor = (props) => {
 
     const [name, setName] = useState('');
-    const [address, setAddress] = useState('Da nang');
+    // const [address, setAddress] = useState('Da nang');
     const [age, setAge] = useState('');
 
     const handleOnChangeName = (e) => {
